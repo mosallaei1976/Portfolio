@@ -24,7 +24,12 @@
   <meta name="twitter:description" content="Licensed Architect · 20+ years · BIM, Power BI & Construction Analytics · Open to remote roles worldwide.">
 
   <!-- Favicon (inline SVG, no extra request) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231f4b77'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Arial, sans-serif' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%231f4b77'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Arial, sans-serif' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Type system: Space Grotesk (display) / IBM Plex Sans (body) / IBM Plex Mono (data & labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome 6 (free) — pinned to a stable release, connection warmed up in advance -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -122,6 +127,18 @@
   </script>
 
   <style>
+    :root {
+      --paper: #F7F5F0;
+      --card: #FFFFFF;
+      --ink: #1B1F22;
+      --ink-soft: #55606A;
+      --blue: #1F4B77;
+      --blue-soft: #E9F0F6;
+      --copper: #A85A28;
+      --line: #C9CFD3;
+      --line-soft: #E4E7E9;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -129,416 +146,468 @@
     }
 
     body {
-      background: #f8fafc;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: var(--paper);
+      font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
       display: flex;
       justify-content: center;
       padding: 2rem 1rem;
-      color: #0b1a2e;
+      color: var(--ink);
     }
 
     .portfolio {
       max-width: 1100px;
       width: 100%;
-      background: white;
-      border-radius: 2.5rem;
-      box-shadow: 0 20px 50px rgba(0, 20, 40, 0.08);
+      background: var(--card);
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(20, 30, 40, 0.05);
       padding: 2.5rem 2.5rem 3rem;
-      transition: box-shadow 0.2s ease;
     }
 
-    /* header / badge */
-    .badge-row {
+    /* ── Title block (signature element) ───────────────────────── */
+    .titleblock {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 1.6rem 1.8rem 2rem;
+      margin-bottom: 2.2rem;
+      background: var(--card);
+    }
+
+    .tb-row {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid var(--line-soft);
     }
 
-    .badge-row .tag {
-      background: #e9eff6;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      color: #1e3a5f;
-    }
-
-    .badge-row .lang {
+    .tb-field {
       display: flex;
-      gap: 0.75rem;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
-    .badge-row .lang i {
-      color: #2c5f8a;
-      font-size: 1rem;
+    .tb-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
     }
 
-    /* title section */
-    .intro {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .intro h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #0b1a2e;
-      margin-bottom: 0.3rem;
-    }
-
-    .intro h1 span {
-      background: linear-gradient(145deg, #1f4b77, #2c6b9e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .intro .subtitle {
-      font-weight: 400;
-      font-size: 1.3rem;
-      color: #1e3a5f;
-      background: #eef4fa;
-      display: inline-block;
-      padding: 0.3rem 2rem;
-      border-radius: 60px;
-      margin-top: 0.25rem;
-      letter-spacing: 0.2px;
-    }
-
-    .target-markets {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      background: #f0f5fe;
-      padding: 0.4rem 1.5rem;
-      border-radius: 40px;
-      display: inline-block;
-      color: #1a3c60;
+    .tb-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
       font-weight: 500;
+      color: var(--ink);
     }
 
-    .target-markets i {
-      margin-right: 0.4rem;
-      color: #2c6b9e;
+    .tb-name h1 {
+      font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--ink);
     }
 
-    /* social row */
+    .tb-name h1 .accent {
+      color: var(--blue);
+    }
+
+    .hr-dim {
+      position: relative;
+      height: 1px;
+      background: var(--line);
+      margin: 1.4rem 0 1.2rem;
+    }
+
+    .hr-dim::before, .hr-dim::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      width: 1px;
+      height: 11px;
+      background: var(--line);
+    }
+
+    .hr-dim::before { left: 0; }
+    .hr-dim::after { right: 0; }
+
+    .tb-subtitle {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      margin-bottom: 0.9rem;
+    }
+
+    .tb-markets {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
+    .tb-markets .tb-label {
+      display: inline;
+      margin-right: 0.6rem;
+      color: var(--copper);
+    }
+
+    @media (max-width: 720px) {
+      .tb-name h1 { font-size: 2.1rem; }
+      .portfolio { padding: 1.5rem; }
+    }
+
+    /* ── social row ─────────────────────────────────────────────── */
     .social-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.6rem 1.2rem;
-      margin: 1.5rem 0 2rem;
+      gap: 0.6rem 0.8rem;
+      margin: 0 0 2.2rem;
     }
 
     .social-links a {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      background: #f1f6fc;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
+      gap: 0.45rem;
+      background: var(--card);
+      padding: 0.45rem 0.95rem;
+      border-radius: 4px;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
       font-weight: 500;
-      color: #1a3a5e;
-      transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
-      border: 1px solid transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      transition: border-color 0.15s, color 0.15s, background-color 0.15s;
     }
 
     .social-links a i {
-      font-size: 1.1rem;
-      width: 1.2rem;
-      color: #1f4b77;
+      font-size: 1rem;
+      color: var(--blue);
     }
 
     .social-links a:hover,
     .social-links a:focus-visible {
-      background: #e1ebf7;
-      border-color: #b6cee8;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,20,40,0.04);
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-soft);
     }
 
     a:focus-visible,
     button:focus-visible {
-      outline: 2px solid #1f4b77;
+      outline: 2px solid var(--blue);
       outline-offset: 2px;
     }
 
-    hr {
-      border: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #c7dcee, #aac0d8, #c7dcee, transparent);
-      margin: 1.8rem 0;
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
     }
 
-    /* sections */
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-      color: #0b1a2e;
+    /* ── sheet-numbered section headers ────────────────────────── */
+    .sheet-title {
       display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      align-items: baseline;
+      gap: 0.8rem;
+      margin: 2.4rem 0 1.1rem;
     }
 
-    .section-title i {
-      color: #2c6b9e;
-      font-size: 1.6rem;
-      width: 2rem;
+    .sheet-title .num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--copper);
+      border: 1px solid var(--copper);
+      border-radius: 3px;
+      padding: 0.15rem 0.5rem;
+      white-space: nowrap;
     }
 
+    .sheet-title h2 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink);
+    }
+
+    .sheet-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line-soft);
+      align-self: center;
+    }
+
+    /* ── summary ────────────────────────────────────────────────── */
     .summary-text {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #1d2f44;
-      background: #f9fcff;
-      padding: 1.2rem 1.8rem;
-      border-radius: 24px;
-      border-left: 6px solid #2c6b9e;
-      margin-bottom: 1.8rem;
+      font-size: 1.03rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--blue-soft);
+      padding: 1.2rem 1.6rem;
+      border-radius: 4px;
+      border-left: 3px solid var(--blue);
     }
 
+    /* ── skills grid ────────────────────────────────────────────── */
     .grid-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin: 1.8rem 0;
+      gap: 1.4rem;
     }
 
     @media (max-width: 720px) {
-      .grid-2col {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-      }
-      .portfolio {
-        padding: 1.5rem;
-      }
-      .intro h1 {
-        font-size: 2.2rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition: none !important;
-      }
+      .grid-2col { grid-template-columns: 1fr; }
     }
 
     .skill-box {
-      background: #fafdff;
-      padding: 0.8rem 1.2rem 1.2rem;
-      border-radius: 24px;
-      box-shadow: 0 4px 10px rgba(0, 30, 60, 0.02);
-      border: 1px solid #e9f0f8;
+      background: var(--card);
+      padding: 1rem 1.2rem 1.3rem;
+      border-radius: 6px;
+      border: 1px solid var(--line-soft);
     }
 
     .skill-box h4 {
-      font-size: 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: #1e3a5f;
-      margin-bottom: 0.8rem;
-      letter-spacing: 0.3px;
-      border-bottom: 1px dashed #d6e3f0;
-      padding-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      margin-bottom: 0.9rem;
+      border-bottom: 1px dashed var(--line);
+      padding-bottom: 0.5rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .skill-box h4 i {
-      color: #2c6b9e;
-    }
+    .skill-box h4 i { color: var(--blue); }
 
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem 0.6rem;
+      gap: 0.4rem 0.5rem;
     }
 
-    .skill-tags span {
-      background: white;
-      border: 1px solid #dce8f2;
-      padding: 0.2rem 0.9rem;
-      border-radius: 30px;
-      font-size: 0.78rem;
+    .skill-tags span,
+    .target-roles span {
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 0.22rem 0.7rem;
+      border-radius: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
       font-weight: 500;
-      color: #1a3a5e;
-      transition: background-color 0.1s, border-color 0.1s;
-      letter-spacing: 0.2px;
+      color: var(--ink-soft);
+      letter-spacing: 0.01em;
+      transition: border-color 0.12s, color 0.12s, background-color 0.12s;
     }
 
-    .skill-tags span:hover {
-      background: #e3edf9;
-      border-color: #a0bedb;
+    .skill-tags span:hover,
+    .target-roles span:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-soft);
     }
 
+    /* ── experience ─────────────────────────────────────────────── */
     .exp-item {
-      background: #fafdff;
-      padding: 1rem 1.4rem;
-      border-radius: 20px;
-      border: 1px solid #e9f0f8;
+      background: var(--card);
+      padding: 1.1rem 1.4rem;
+      border: 1px solid var(--line-soft);
+      border-left: 3px solid var(--blue);
+      border-radius: 4px;
       margin-bottom: 1rem;
     }
 
-    .exp-item:last-child {
-      margin-bottom: 0;
-    }
+    .exp-item:last-child { margin-bottom: 0; }
 
     .exp-item .exp-title {
       font-weight: 700;
-      font-size: 1.1rem;
-      color: #0b1a2e;
+      font-size: 1.05rem;
+      color: var(--ink);
     }
 
     .exp-item .exp-meta {
+      font-family: 'IBM Plex Mono', monospace;
       font-weight: 500;
-      color: #2c5f8a;
-      font-size: 0.9rem;
-      margin: 0.2rem 0 0.5rem;
+      color: var(--blue);
+      font-size: 0.82rem;
+      margin: 0.25rem 0 0.6rem;
     }
 
-    .exp-item ul {
-      list-style: none;
-      padding-left: 0.2rem;
-    }
+    .exp-item ul { list-style: none; padding-left: 0.2rem; }
 
     .exp-item ul li {
       position: relative;
-      padding-left: 1.4rem;
-      margin-bottom: 0.3rem;
-      font-size: 0.95rem;
+      padding-left: 1.3rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.94rem;
       line-height: 1.5;
-      color: #1f3650;
+      color: var(--ink);
     }
 
     .exp-item ul li::before {
       content: "▹";
       position: absolute;
       left: 0;
-      color: #2c6b9e;
+      color: var(--copper);
       font-weight: 600;
     }
 
     .exp-item .achieve {
-      background: #e5eff9;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #1f4b77;
+      background: var(--blue-soft);
+      padding: 0.35rem 0.9rem;
+      border-radius: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--blue);
       display: inline-block;
       margin-top: 0.3rem;
+      letter-spacing: 0.02em;
     }
 
+    /* ── education / credentials ────────────────────────────────── */
     .edu-target {
-      background: #f3f9ff;
-      border-radius: 24px;
-      padding: 1.2rem 1.8rem;
-      border: 1px solid #dde9f5;
+      background: var(--blue-soft);
+      border-radius: 6px;
+      padding: 1.1rem 1.6rem;
+      border: 1px solid var(--line-soft);
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      margin: 1.8rem 0 0.5rem;
+      gap: 0.8rem;
     }
 
     .edu-target .edu {
       font-weight: 500;
+      font-size: 0.94rem;
     }
 
-    .edu-target .edu i {
-      color: #2c6b9e;
-      margin-right: 0.4rem;
-    }
+    .edu-target .edu i { color: var(--blue); margin-right: 0.4rem; }
 
     .edu-target .target-roles {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.3rem 0.8rem;
+      gap: 0.35rem 0.6rem;
     }
 
-    .edu-target .target-roles span {
-      background: white;
-      padding: 0.2rem 1rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #1a3c60;
-      border: 1px solid #c5d7eb;
+    .edu-target .target-roles span { background: var(--card); }
+
+    /* ── FAQ ────────────────────────────────────────────────────── */
+    .faq-block { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      padding: 1rem 1.3rem;
     }
 
+    .faq-item .faq-q {
+      display: flex;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .faq-item .faq-num {
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--copper);
+      font-weight: 600;
+    }
+
+    .faq-item .faq-a {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      padding-left: 1.6rem;
+    }
+
+    /* ── footer CTA ─────────────────────────────────────────────── */
     .footer-cta {
       text-align: center;
-      margin-top: 2.8rem;
-      background: #f1f8ff;
-      padding: 1.5rem 1rem;
-      border-radius: 40px;
+      margin-top: 2.6rem;
+      background: var(--paper);
+      border: 1px solid var(--line-soft);
+      padding: 1.6rem 1rem;
+      border-radius: 6px;
     }
 
     .footer-cta h2 {
-      font-weight: 600;
-      color: #0b1a2e;
-      font-size: 1.3rem;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    .footer-cta p {
-      margin-top: 0.3rem;
-      color: #1f3a5a;
-    }
+    .footer-cta p { margin-top: 0.5rem; color: var(--ink-soft); }
 
     .footer-cta a {
-      color: #1f4b77;
+      color: var(--blue);
       font-weight: 600;
       text-decoration: none;
-      border-bottom: 2px solid transparent;
+      border-bottom: 1px solid transparent;
       transition: border-color 0.15s;
     }
 
-    .footer-cta a:hover {
-      border-bottom-color: #1f4b77;
-    }
+    .footer-cta a:hover { border-bottom-color: var(--blue); }
 
     .copy-btn {
       background: none;
       border: none;
       cursor: pointer;
-      color: #1f4b77;
+      color: var(--blue);
       font: inherit;
       font-weight: 600;
       text-decoration: underline;
       padding: 0;
     }
 
-    /* small */
-    .text-muted {
-      color: #3d5c7c;
+    footer.site-footer {
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      margin-top: 1.8rem;
+      border-top: 1px solid var(--line-soft);
+      padding-top: 1.2rem;
+      letter-spacing: 0.02em;
     }
-    .mt-1 { margin-top: 0.8rem; }
   </style>
 </head>
 <body>
   <main class="portfolio" id="app">
-    <!-- header -->
-    <div class="badge-row">
-      <span class="tag"><i class="fas fa-briefcase" aria-hidden="true" style="margin-right: 0.3rem;"></i> Open to work · worldwide</span>
-      <span class="lang" aria-label="Language: English"><i class="fas fa-globe" aria-hidden="true"></i> EN</span>
-    </div>
 
-    <!-- intro -->
-    <div class="intro">
-      <h1>Hi, I'm <span>Mohammad Mosallaei</span> <span aria-hidden="true">👋</span></h1>
-      <h2 class="subtitle">Licensed Architect · BIM & Data Analytics Professional</h2>
-      <p class="target-markets">
-        <i class="fas fa-map-pin" aria-hidden="true"></i> Target Markets: Canada · Australia · New Zealand · Europe · GCC · Remote
-      </p>
-    </div>
+    <!-- title block (signature element, styled after a drawing-sheet title block) -->
+    <header class="titleblock">
+      <div class="tb-row">
+        <span class="tb-field"><span class="tb-label">Sheet</span><span class="tb-value">A-00 · Cover</span></span>
+        <span class="tb-field"><span class="tb-label">Status</span><span class="tb-value"><i class="fas fa-briefcase" aria-hidden="true"></i> Open to work · Worldwide</span></span>
+        <span class="tb-field"><span class="tb-label">Lang</span><span class="tb-value"><i class="fas fa-globe" aria-hidden="true"></i> EN</span></span>
+      </div>
+
+      <div class="tb-name">
+        <h1>Mohammad <span class="accent">Mosallaei</span> <span aria-hidden="true">👋</span></h1>
+      </div>
+
+      <div class="hr-dim" aria-hidden="true"></div>
+
+      <h2 class="tb-subtitle">Licensed Architect · BIM &amp; Data Analytics Professional</h2>
+      <p class="tb-markets"><span class="tb-label">Target Markets</span> Canada · Australia · New Zealand · Europe · GCC · Remote</p>
+    </header>
 
     <!-- social badges -->
     <nav class="social-links" aria-label="Contact and social links">
@@ -549,24 +618,23 @@
       <a href="https://youtube.com/@mosallaei.architect" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i> @mosallaei.architect</a>
     </nav>
 
-    <hr>
-
     <!-- summary -->
+    <div class="sheet-title"><span class="num">A-01</span><h2>Summary</h2></div>
     <p class="summary-text">
-      <i class="fas fa-quote-left" aria-hidden="true" style="color:#2c6b9e; opacity:0.6; margin-right: 0.6rem;"></i>
+      <i class="fas fa-quote-left" aria-hidden="true" style="color:var(--blue); opacity:0.6; margin-right: 0.6rem;"></i>
       Mohammad Mosallaei is a licensed architect based in Qazvin, Iran, with <strong>20+ years</strong> of experience in the design, supervision, and inspection of reinforced concrete and steel buildings up to six floors. He holds a <strong>Grade 1 architectural license</strong> from Iran's Ministry of Road and Urban Development and has served as Architectural Supervisor at the Qazvin Construction Engineering Organization since 2007. He is currently expanding into <strong>BIM-driven data analytics and Power BI</strong> dashboards for construction project controls, and is open to remote or international roles.
     </p>
 
-    <!-- core competencies + technical skills (two col) -->
+    <!-- core competencies -->
+    <div class="sheet-title"><span class="num">A-02</span><h2>Core Competencies</h2></div>
     <div class="grid-2col">
-      <!-- architecture & construction -->
       <section class="skill-box" aria-labelledby="skills-arch">
-        <h4 id="skills-arch"><i class="fas fa-hard-hat" aria-hidden="true"></i> Architecture & Construction</h4>
+        <h4 id="skills-arch"><i class="fas fa-hard-hat" aria-hidden="true"></i> Architecture &amp; Construction</h4>
         <div class="skill-tags">
           <span>Architectural Design</span>
           <span>Construction Documentation</span>
           <span>Design Management</span>
-          <span>Building Codes & Compliance</span>
+          <span>Building Codes &amp; Compliance</span>
           <span>Construction Supervision</span>
           <span>Site Inspection</span>
           <span>Contractor Coordination</span>
@@ -576,9 +644,8 @@
         </div>
       </section>
 
-      <!-- digital & emerging -->
       <section class="skill-box" aria-labelledby="skills-digital">
-        <h4 id="skills-digital"><i class="fas fa-microchip" aria-hidden="true"></i> Digital & Emerging Tech</h4>
+        <h4 id="skills-digital"><i class="fas fa-microchip" aria-hidden="true"></i> Digital &amp; Emerging Tech</h4>
         <div class="skill-tags">
           <span>AutoCAD</span>
           <span>Microsoft Office Suite</span>
@@ -594,7 +661,7 @@
     </div>
 
     <!-- experience -->
-    <h2 class="section-title" style="margin-top: 0.8rem;"><i class="fas fa-briefcase" aria-hidden="true"></i> Professional Experience</h2>
+    <div class="sheet-title"><span class="num">A-03</span><h2>Professional Experience</h2></div>
 
     <article class="exp-item">
       <div class="exp-title">Architectural Supervisor</div>
@@ -628,6 +695,7 @@
     </article>
 
     <!-- education & target roles -->
+    <div class="sheet-title"><span class="num">A-04</span><h2>Education &amp; Credentials</h2></div>
     <section class="edu-target" aria-label="Education and target roles">
       <div class="edu"><i class="fas fa-graduation-cap" aria-hidden="true"></i> M.Sc. Architectural Engineering, Qazvin Islamic Azad University (2003) · Grade 1 License, Ministry of Road &amp; Urban Development</div>
       <div class="target-roles">
@@ -645,34 +713,42 @@
     </section>
 
     <!-- FAQ — visible mirror of the FAQPage structured data above -->
-    <h2 class="section-title" style="margin-top: 1.8rem;"><i class="fas fa-circle-question" aria-hidden="true"></i> Frequently Asked Questions</h2>
-    <div class="exp-item">
-      <p style="font-weight:700; margin-bottom:0.2rem;">How many years of architecture experience does Mohammad Mosallaei have?</p>
-      <p style="margin-bottom:1rem; color:#1f3650;">20+ years designing, supervising, and inspecting reinforced concrete and steel buildings up to 6 floors, based in Qazvin, Iran.</p>
-      <p style="font-weight:700; margin-bottom:0.2rem;">What professional license does he hold?</p>
-      <p style="margin-bottom:1rem; color:#1f3650;">A Grade 1 license in architectural design, supervision, and construction from Iran's Ministry of Road and Urban Development; member of the Qazvin Construction Engineering Organization.</p>
-      <p style="font-weight:700; margin-bottom:0.2rem;">Is he available for remote or international work?</p>
-      <p style="margin-bottom:1rem; color:#1f3650;">Yes — open to remote and international roles in Canada, Australia, New Zealand, Europe, and the GCC, with relocation and visa sponsorship where required.</p>
-      <p style="font-weight:700; margin-bottom:0.2rem;">What is his educational background?</p>
-      <p style="margin-bottom:0; color:#1f3650;">M.Sc. in Architectural Engineering, Qazvin Islamic Azad University (QIAU), 2003.</p>
+    <div class="sheet-title"><span class="num">A-05</span><h2>Frequently Asked Questions</h2></div>
+    <div class="faq-block">
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-num">Q1</span> How many years of architecture experience does Mohammad Mosallaei have?</p>
+        <p class="faq-a">20+ years designing, supervising, and inspecting reinforced concrete and steel buildings up to 6 floors, based in Qazvin, Iran.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-num">Q2</span> What professional license does he hold?</p>
+        <p class="faq-a">A Grade 1 license in architectural design, supervision, and construction from Iran's Ministry of Road and Urban Development; member of the Qazvin Construction Engineering Organization.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-num">Q3</span> Is he available for remote or international work?</p>
+        <p class="faq-a">Yes — open to remote and international roles in Canada, Australia, New Zealand, Europe, and the GCC, with relocation and visa sponsorship where required.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q"><span class="faq-num">Q4</span> What is his educational background?</p>
+        <p class="faq-a">M.Sc. in Architectural Engineering, Qazvin Islamic Azad University (QIAU), 2003.</p>
+      </div>
     </div>
 
     <!-- footer CTA -->
     <section class="footer-cta">
-      <h2><span aria-hidden="true">⚡</span> Let's Connect & Collaborate!</h2>
+      <h2><span aria-hidden="true">⚡</span> Let's Connect &amp; Collaborate!</h2>
       <p>
         Feel free to reach out via
         <button type="button" class="copy-btn" id="copyEmailBtn" data-email="mosallaei@gmail.com">Email</button>
         or connect with me on <a href="https://linkedin.com/in/mohamad-mosallaei" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
       </p>
-      <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #24537e;">
+      <div style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--ink-soft);">
         <i class="fas fa-map-marker-alt" aria-hidden="true" style="margin-right: 0.2rem;"></i> Remote · Worldwide
       </div>
     </section>
 
     <!-- small footer note -->
-    <footer style="text-align: center; font-size: 0.75rem; color: #6c8aa8; margin-top: 1.8rem; border-top: 1px solid #e5edf6; padding-top: 1.2rem; letter-spacing: 0.3px;">
-      <i class="fas fa-code" aria-hidden="true"></i> built with <i class="fas fa-heart" aria-hidden="true" style="color: #b22234;"></i> · GitHub portfolio · <span id="year"></span>
+    <footer class="site-footer">
+      <i class="fas fa-code" aria-hidden="true"></i> built with <i class="fas fa-heart" aria-hidden="true" style="color: var(--copper);"></i> · GitHub portfolio · <span id="year"></span>
     </footer>
   </main>
 
@@ -680,11 +756,9 @@
     (function () {
       'use strict';
 
-      // Footer year — no more hardcoded date to maintain
       var yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Copy-to-clipboard for the email CTA, with a mailto: fallback
       var btn = document.getElementById('copyEmailBtn');
       if (btn) {
         btn.addEventListener('click', function () {
