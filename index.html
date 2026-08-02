@@ -1,460 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohammad Mosallaei · Architect & BIM Professional</title>
-  <!-- Font Awesome Icons (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #f4f7fb;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-      display: flex;
-      justify-content: center;
-      padding: 2rem 1rem;
-      line-height: 1.6;
-      color: #1e2b3c;
-    }
-
-    .portfolio {
-      max-width: 1200px;
-      width: 100%;
-      background: white;
-      border-radius: 2rem;
-      box-shadow: 0 20px 40px -12px rgba(0, 20, 30, 0.25);
-      padding: 2.5rem 2.8rem;
-      transition: all 0.2s;
-    }
-
-    @media (max-width: 700px) {
-      .portfolio {
-        padding: 1.8rem 1.2rem;
-      }
-    }
-
-    /* header / avatar row */
-    .profile-header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.5rem 2rem;
-      margin-bottom: 2rem;
-      border-bottom: 2px solid #eef2f6;
-      padding-bottom: 2rem;
-    }
-
-    .avatar {
-      background: linear-gradient(145deg, #1e2b3c, #2c3e50);
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2.8rem;
-      font-weight: 500;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      flex-shrink: 0;
-    }
-
-    .title-group h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #0b1a26;
-    }
-
-    .title-group h3 {
-      font-weight: 400;
-      color: #2c4a5e;
-      margin-top: 0.2rem;
-      font-size: 1.2rem;
-    }
-
-    .badge-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.8rem;
-      margin-top: 0.7rem;
-    }
-
-    .badge-strip a {
-      text-decoration: none;
-    }
-
-    .badge-strip img {
-      height: 28px;
-      border-radius: 6px;
-      transition: 0.2s;
-    }
-
-    .badge-strip img:hover {
-      transform: scale(1.02);
-      filter: brightness(0.95);
-    }
-
-    /* summary */
-    .summary {
-      background: #f0f5fa;
-      padding: 1.6rem 2rem;
-      border-radius: 1.5rem;
-      margin-bottom: 2.2rem;
-      border-left: 6px solid #2c6b8f;
-    }
-
-    .summary p {
-      font-size: 1.05rem;
-      color: #1a2e3d;
-    }
-
-    /* grid layout */
-    .grid-2col {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 2.2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    @media (max-width: 850px) {
-      .grid-2col {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
-    .card {
-      background: #f9fcff;
-      border-radius: 1.5rem;
-      padding: 1.5rem 1.8rem;
-      box-shadow: 0 4px 12px rgba(0, 20, 30, 0.05);
-      border: 1px solid #eaf0f5;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      border-color: #cbdae6;
-      box-shadow: 0 8px 18px rgba(0, 20, 30, 0.06);
-    }
-
-    .card h2 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #1e3b4f;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      border-bottom: 2px solid #e3ebf2;
-      padding-bottom: 0.6rem;
-    }
-
-    .card h2 i {
-      color: #2c6b8f;
-      font-size: 1.2rem;
-      width: 1.6rem;
-    }
-
-    .skill-tag {
-      display: inline-block;
-      background: white;
-      border: 1px solid #d6e2ec;
-      border-radius: 40px;
-      padding: 0.3rem 1rem;
-      margin: 0.25rem 0.3rem 0.25rem 0;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #1b3b4f;
-      transition: 0.1s;
-    }
-
-    .skill-tag i {
-      color: #2c6b8f;
-      margin-right: 0.3rem;
-      font-size: 0.8rem;
-    }
-
-    .skill-group-title {
-      font-weight: 600;
-      color: #1f4057;
-      margin: 0.8rem 0 0.3rem 0;
-      font-size: 0.95rem;
-      letter-spacing: 0.3px;
-    }
-
-    .exp-item {
-      margin-bottom: 1.4rem;
-    }
-
-    .exp-item strong {
-      color: #0b2a3d;
-      font-size: 1.05rem;
-    }
-
-    .exp-item .meta {
-      font-weight: 500;
-      color: #3a637c;
-      font-size: 0.9rem;
-      display: block;
-      margin: 0.1rem 0 0.3rem 0;
-    }
-
-    .exp-item ul {
-      list-style: none;
-      padding-left: 0.2rem;
-      margin-top: 0.3rem;
-    }
-
-    .exp-item ul li {
-      padding: 0.2rem 0 0.2rem 1.4rem;
-      position: relative;
-      font-size: 0.95rem;
-    }
-
-    .exp-item ul li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: #2c6b8f;
-      font-weight: 600;
-    }
-
-    .education-box {
-      background: #eaf2f8;
-      border-radius: 1rem;
-      padding: 1rem 1.4rem;
-      margin: 0.8rem 0 0.2rem 0;
-    }
-
-    .target-roles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.6rem;
-      margin-top: 0.8rem;
-    }
-
-    .target-roles span {
-      background: white;
-      border-radius: 30px;
-      padding: 0.2rem 1.2rem;
-      border: 1px solid #cbdae6;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem 1.8rem;
-      margin: 1.5rem 0 0.2rem;
-      padding-top: 1.2rem;
-      border-top: 2px solid #e2ebf3;
-    }
-
-    .contact-links a {
-      text-decoration: none;
-      color: #1e3b4f;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: 0.15s;
-      border-radius: 30px;
-      padding: 0.3rem 0.8rem;
-      background: #f2f7fc;
-    }
-
-    .contact-links a i {
-      font-size: 1.1rem;
-      color: #2c6b8f;
-    }
-
-    .contact-links a:hover {
-      background: #e2edf7;
-      color: #0b2a3d;
-      transform: translateY(-2px);
-    }
-
-    .footer-note {
-      text-align: center;
-      margin: 2rem 0 0.2rem;
-      font-size: 0.95rem;
-      color: #3a5b70;
-    }
-
-    .footer-note i {
-      color: #c44545;
-    }
-
-    hr {
-      border: 0;
-      border-top: 2px solid #e5eef6;
-      margin: 0.5rem 0 1.2rem;
-    }
-
-    /* small */
-    @media (max-width: 480px) {
-      .avatar {
-        width: 70px;
-        height: 70px;
-        font-size: 2rem;
-      }
-      .title-group h1 {
-        font-size: 1.6rem;
-      }
-      .badge-strip img {
-        height: 24px;
-      }
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f8fafc; font-family: 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; padding: 2rem 1rem; color: #0b1a2e; }
+    .portfolio { max-width: 1100px; width: 100%; background: white; border-radius: 2.5rem; box-shadow: 0 20px 50px rgba(0, 20, 40, 0.08); padding: 2.5rem 2.5rem 3rem; }
+    .badge-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .badge-row .tag { background: #e9eff6; padding: 0.4rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; color: #1e3a5f; }
+    .intro { text-align: center; margin-bottom: 2rem; }
+    .intro h1 { font-size: 2.8rem; font-weight: 700; color: #0b1a2e; margin-bottom: 0.3rem; }
+    .intro h1 span { background: linear-gradient(145deg, #1f4b77, #2c6b9e); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .intro h3 { font-weight: 400; font-size: 1.3rem; color: #1e3a5f; background: #eef4fa; display: inline-block; padding: 0.3rem 2rem; border-radius: 60px; margin-top: 0.25rem; }
+    .target-markets { margin-top: 0.75rem; font-size: 0.95rem; background: #f0f5fe; padding: 0.4rem 1.5rem; border-radius: 40px; display: inline-block; color: #1a3c60; font-weight: 500; }
+    .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.2rem; margin: 1.5rem 0 2rem; }
+    .social-links a { display: inline-flex; align-items: center; gap: 0.4rem; background: #f1f6fc; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-size: 0.85rem; color: #1a3a5e; transition: 0.2s; border: 1px solid transparent; }
+    .social-links a:hover { background: #e1ebf7; border-color: #b6cee8; transform: translateY(-2px); }
+    hr { border: 0; height: 2px; background: linear-gradient(90deg, transparent, #c7dcee, #aac0d8, #c7dcee, transparent); margin: 1.8rem 0; }
+    .summary-text { font-size: 1.05rem; line-height: 1.6; color: #1d2f44; background: #f9fcff; padding: 1.2rem 1.8rem; border-radius: 24px; border-left: 6px solid #2c6b9e; margin-bottom: 1.8rem; }
+    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1.8rem 0; }
+    .skill-box { background: #fafdff; padding: 1.2rem; border-radius: 24px; border: 1px solid #e9f0f8; }
+    .skill-box h4 { font-size: 1rem; color: #1e3a5f; margin-bottom: 0.8rem; border-bottom: 1px dashed #d6e3f0; padding-bottom: 0.4rem; }
+    .skill-tags span { display: inline-block; background: white; border: 1px solid #dce8f2; padding: 0.2rem 0.9rem; margin: 0.2rem; border-radius: 30px; font-size: 0.78rem; }
+    .exp-item { background: #fafdff; padding: 1.4rem; border-radius: 20px; border: 1px solid #e9f0f8; margin-bottom: 1rem; }
+    .exp-item ul { list-style: none; padding-left: 1.4rem; }
+    .exp-item ul li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .edu-target { background: #f3f9ff; border-radius: 24px; padding: 1.2rem; border: 1px solid #dde9f5; margin-top: 1.8rem; }
+    @media (max-width: 720px) { .grid-2col { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-<div class="portfolio" id="app">
-
-  <!-- header -->
-  <div class="profile-header">
-    <div class="avatar">MM</div>
-    <div class="title-group">
-      <h1>Mohammad Mosallaei</h1>
-      <h3><i class="fas fa-archway" style="margin-right: 6px; color: #2c6b8f;"></i> Licensed Architect · BIM & Data Analytics</h3>
-      <div class="badge-strip">
-        <a href="mailto:mosallaei@gmail.com"><img src="https://img.shields.io/badge/Email-mosallaei@gmail.com-red?style=flat-square&logo=gmail" alt="Email" /></a>
-        <a href="https://linkedin.com/in/mohamad-mosallaei"><img src="https://img.shields.io/badge/LinkedIn-mohamad--mosallaei-blue?style=flat-square&logo=linkedin" alt="LinkedIn" /></a>
-        <a href="https://github.com/mosallaei1976"><img src="https://img.shields.io/badge/GitHub-mosallaei1976-black?style=flat-square&logo=github" alt="GitHub" /></a>
-        <a href="https://t.me/msli1976"><img src="https://img.shields.io/badge/Telegram-msli1976-blue?style=flat-square&logo=telegram" alt="Telegram" /></a>
-        <a href="https://youtube.com/@mosallaei.architect"><img src="https://img.shields.io/badge/YouTube-@mosallaei.architect-red?style=flat-square&logo=youtube" alt="YouTube" /></a>
+  <div class="portfolio">
+    <div class="badge-row">
+      <span class="tag"><i class="fas fa-briefcase"></i> Open to work</span>
+      <span>EN · IR</span>
+    </div>
+    <div class="intro">
+      <h1>Hi, I'm <span>Mohammad Mosallaei</span></h1>
+      <h3>Licensed Architect · BIM & Data Analytics Professional</h3>
+      <div class="target-markets"><i class="fas fa-map-pin"></i> Target: Global / Remote</div>
+    </div>
+    <div class="social-links">
+      <a href="mailto:mosallaei@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://www.linkedin.com/in/mohamad-mosallaei/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/mosallaei1976" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://t.me/msli1976" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://www.youtube.com/@mosallaei.architect" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+    <hr>
+    <div class="summary-text">
+      Licensed Architect with <strong>20+ years</strong> experience. Expert in Architectural Design, BIM, Power BI, Data Analytics, and AI integration for the AEC industry.
+    </div>
+    <div class="grid-2col">
+      <div class="skill-box">
+        <h4>Architecture & Construction</h4>
+        <div class="skill-tags"><span>Design</span><span>BIM</span><span>Supervision</span><span>Compliance</span></div>
+      </div>
+      <div class="skill-box">
+        <h4>Digital & Tech</h4>
+        <div class="skill-tags"><span>AutoCAD</span><span>Power BI</span><span>Data Analytics</span><span>AI</span></div>
       </div>
     </div>
-  </div>
-
-  <!-- summary -->
-  <div class="summary">
-    <p><i class="fas fa-quote-left" style="color:#2c6b8f; margin-right: 8px;"></i> Licensed Architect with <strong>20+ years</strong> of experience in architectural design, construction supervision, project coordination, and multidisciplinary team collaboration. Proven ability to deliver residential, commercial, and mixed-use projects from concept through construction. Currently expanding expertise in <strong>BIM, Power BI, Data Analytics, and AI</strong> to drive digital transformation in the AEC industry. Strong analytical, leadership, and stakeholder management skills with a commitment to quality, safety, and efficient project delivery.</p>
-  </div>
-
-  <!-- 2 columns -->
-  <div class="grid-2col">
-    <!-- left: skills + education -->
-    <div>
-      <!-- core competencies -->
-      <div class="card" style="margin-bottom: 1.8rem;">
-        <h2><i class="fas fa-tools"></i> Core Competencies</h2>
-        <div><span class="skill-group-title"><i class="fas fa-building"></i> Architecture & Construction</span></div>
-        <div>
-          <span class="skill-tag"><i class="fas fa-pencil-ruler"></i> Design & Documentation</span>
-          <span class="skill-tag"><i class="fas fa-hard-hat"></i> Supervision & Execution</span>
-          <span class="skill-tag"><i class="fas fa-file-signature"></i> Building Codes & Compliance</span>
-          <span class="skill-tag"><i class="fas fa-clipboard-check"></i> Quality Assurance</span>
-          <span class="skill-tag"><i class="fas fa-people-arrows"></i> Contractor Coordination</span>
-          <span class="skill-tag"><i class="fas fa-chart-line"></i> Risk Management</span>
-        </div>
-
-        <div style="margin-top: 1.2rem;"><span class="skill-group-title"><i class="fas fa-microchip"></i> Digital & Emerging Tech</span></div>
-        <div>
-          <span class="skill-tag"><i class="fas fa-cube"></i> AutoCAD</span>
-          <span class="skill-tag"><i class="fas fa-file-excel"></i> MS Office (Excel, Word, PPT)</span>
-          <span class="skill-tag"><i class="fas fa-chart-pie"></i> Power BI</span>
-          <span class="skill-tag"><i class="fas fa-cubes"></i> BIM Fundamentals</span>
-          <span class="skill-tag"><i class="fas fa-database"></i> Construction Analytics</span>
-          <span class="skill-tag"><i class="fas fa-robot"></i> AI for AEC</span>
-          <span class="skill-tag"><i class="fas fa-sync-alt"></i> Process Automation</span>
-          <span class="skill-tag"><i class="fas fa-code"></i> Data Visualization</span>
-        </div>
-      </div>
-
-      <!-- education + target roles -->
-      <div class="card">
-        <h2><i class="fas fa-graduation-cap"></i> Education & Target Roles</h2>
-        <div class="education-box">
-          <strong><i class="fas fa-university"></i> Bachelor of Architecture</strong> · Licensed Architect
-        </div>
-        <div style="margin-top: 1rem;">
-          <span style="font-weight: 600; color: #1f4057;"><i class="fas fa-bullseye"></i> Target roles:</span>
-          <div class="target-roles">
-            <span>Architect</span><span>Architectural Supervisor</span><span>Project Coordinator</span>
-            <span>Design Coordinator</span><span>BIM Coordinator</span><span>Construction Coordinator</span>
-            <span>Technical Office Engineer</span><span>Documentation Specialist</span>
-            <span>BIM Data Analyst</span><span>Construction Data Analyst</span>
-          </div>
-        </div>
-        <div style="margin-top: 1rem; background: #e9f1f8; border-radius: 40px; padding: 0.3rem 1rem; display: inline-block; font-size: 0.85rem;">
-          <i class="fas fa-globe-americas"></i> Target markets: Canada · Australia · New Zealand · Europe · GCC · Remote
-        </div>
-      </div>
+    <div class="exp-item">
+      <h4>Professional Experience</h4>
+      <ul>
+        <li>20+ years of Architectural Design & Construction Supervision.</li>
+        <li>Specialized in BIM workflows and Construction Data Analytics.</li>
+      </ul>
     </div>
-
-    <!-- right: experience -->
-    <div class="card">
-      <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-      <div class="exp-item">
-        <strong>Architectural Supervisor / Licensed Architect</strong>
-        <span class="meta"><i class="far fa-calendar-alt"></i> 20+ years of professional experience</span>
-        <ul>
-          <li>Supervised construction activities from foundation to project completion.</li>
-          <li>Coordinated architects, engineers, contractors, and clients.</li>
-          <li>Reviewed architectural drawings and technical documentation.</li>
-          <li>Conducted site inspections and quality assurance, ensuring compliance with building regulations.</li>
-          <li>Supported design development, schedule monitoring, and construction problem-solving.</li>
-        </ul>
-        <div style="margin-top: 0.8rem; background: #eaf2f8; padding: 0.6rem 1.2rem; border-radius: 2rem; display: inline-block; font-weight: 500;">
-          <i class="fas fa-trophy" style="color: #c97d2b;"></i> Key achievements
-        </div>
-        <ul style="margin-top: 0.2rem;">
-          <li>Successfully supervised multiple residential and commercial construction projects.</li>
-          <li>Improved coordination between design and construction teams, reducing errors through effective site supervision.</li>
-          <li>Developed extensive expertise in construction documentation and technical review.</li>
-          <li>Expanded expertise into BIM, Data Analytics, and AI applications for construction.</li>
-        </ul>
-      </div>
+    <div class="edu-target">
+      <p><strong>Education:</strong> Bachelor's Degree in Architecture · Licensed Architect</p>
     </div>
   </div>
-
-  <!-- contact & footer -->
-  <div class="contact-links">
-    <a href="mailto:mosallaei@gmail.com"><i class="fas fa-envelope"></i> mosallaei@gmail.com</a>
-    <a href="https://linkedin.com/in/mohamad-mosallaei"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="https://github.com/mosallaei1976"><i class="fab fa-github"></i> GitHub</a>
-    <a href="https://t.me/msli1976"><i class="fab fa-telegram-plane"></i> Telegram</a>
-    <a href="https://youtube.com/@mosallaei.architect"><i class="fab fa-youtube"></i> YouTube</a>
-  </div>
-
-  <div class="footer-note">
-    <i class="fas fa-handshake"></i> Let's connect & collaborate — feel free to reach out via email or LinkedIn.
-    <br style="display: none;" />
-    <span style="display: inline-block; margin-top: 0.4rem; opacity: 0.7; font-size: 0.85rem;">
-      <i class="fas fa-code"></i> built with <i class="fas fa-heart" style="color: #c44545;"></i> for GitHub portfolio
-    </span>
-  </div>
-
-  <!-- small js: interactive hover or extra (optional) -->
-  <script>
-    (function() {
-      // simple dynamic year (optional)
-      const yearSpan = document.createElement('span');
-      yearSpan.style.display = 'none';
-      // just to show minimal js interaction, we add a tiny effect on card titles
-      const cards = document.querySelectorAll('.card h2');
-      cards.forEach((h2) => {
-        h2.addEventListener('mouseenter', function(e) {
-          this.style.transition = '0.15s';
-          this.style.color = '#1f5777';
-        });
-        h2.addEventListener('mouseleave', function(e) {
-          this.style.color = '#1e3b4f';
-        });
-      });
-      console.log('Portfolio ready · Mohammad Mosallaei');
-    })();
-  </script>
-
-</div>
 </body>
 </html>
