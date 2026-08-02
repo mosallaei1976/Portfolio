@@ -4,77 +4,516 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohammad Mosallaei · Architect & BIM Professional</title>
-  <!-- Font Awesome 6 -->
+  <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #f8fafc; font-family: 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; padding: 2rem 1rem; color: #0b1a2e; }
-    .portfolio { max-width: 1100px; width: 100%; background: white; border-radius: 2.5rem; box-shadow: 0 20px 50px rgba(0, 20, 40, 0.08); padding: 2.5rem 2.5rem 3rem; }
-    .badge-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-    .badge-row .tag { background: #e9eff6; padding: 0.4rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; color: #1e3a5f; }
-    .intro { text-align: center; margin-bottom: 2rem; }
-    .intro h1 { font-size: 2.8rem; font-weight: 700; color: #0b1a2e; margin-bottom: 0.3rem; }
-    .intro h1 span { background: linear-gradient(145deg, #1f4b77, #2c6b9e); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .intro h3 { font-weight: 400; font-size: 1.3rem; color: #1e3a5f; background: #eef4fa; display: inline-block; padding: 0.3rem 2rem; border-radius: 60px; margin-top: 0.25rem; }
-    .target-markets { margin-top: 0.75rem; font-size: 0.95rem; background: #f0f5fe; padding: 0.4rem 1.5rem; border-radius: 40px; display: inline-block; color: #1a3c60; font-weight: 500; }
-    .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.2rem; margin: 1.5rem 0 2rem; }
-    .social-links a { display: inline-flex; align-items: center; gap: 0.4rem; background: #f1f6fc; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-size: 0.85rem; color: #1a3a5e; transition: 0.2s; border: 1px solid transparent; }
-    .social-links a:hover { background: #e1ebf7; border-color: #b6cee8; transform: translateY(-2px); }
-    hr { border: 0; height: 2px; background: linear-gradient(90deg, transparent, #c7dcee, #aac0d8, #c7dcee, transparent); margin: 1.8rem 0; }
-    .summary-text { font-size: 1.05rem; line-height: 1.6; color: #1d2f44; background: #f9fcff; padding: 1.2rem 1.8rem; border-radius: 24px; border-left: 6px solid #2c6b9e; margin-bottom: 1.8rem; }
-    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1.8rem 0; }
-    .skill-box { background: #fafdff; padding: 1.2rem; border-radius: 24px; border: 1px solid #e9f0f8; }
-    .skill-box h4 { font-size: 1rem; color: #1e3a5f; margin-bottom: 0.8rem; border-bottom: 1px dashed #d6e3f0; padding-bottom: 0.4rem; }
-    .skill-tags span { display: inline-block; background: white; border: 1px solid #dce8f2; padding: 0.2rem 0.9rem; margin: 0.2rem; border-radius: 30px; font-size: 0.78rem; }
-    .exp-item { background: #fafdff; padding: 1.4rem; border-radius: 20px; border: 1px solid #e9f0f8; margin-bottom: 1rem; }
-    .exp-item ul { list-style: none; padding-left: 1.4rem; }
-    .exp-item ul li { margin-bottom: 0.5rem; font-size: 0.95rem; }
-    .edu-target { background: #f3f9ff; border-radius: 24px; padding: 1.2rem; border: 1px solid #dde9f5; margin-top: 1.8rem; }
-    @media (max-width: 720px) { .grid-2col { grid-template-columns: 1fr; } }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8fafc;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      color: #0b1a2e;
+    }
+
+    .portfolio {
+      max-width: 1100px;
+      width: 100%;
+      background: white;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 50px rgba(0, 20, 40, 0.08);
+      padding: 2.5rem 2.5rem 3rem;
+      transition: all 0.2s ease;
+    }
+
+    /* header / badge */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-row .tag {
+      background: #e9eff6;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #1e3a5f;
+    }
+
+    .badge-row .lang {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .badge-row .lang i {
+      color: #2c5f8a;
+      font-size: 1rem;
+    }
+
+    /* title section */
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .intro h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0b1a2e;
+      margin-bottom: 0.3rem;
+    }
+
+    .intro h1 span {
+      background: linear-gradient(145deg, #1f4b77, #2c6b9e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .intro h3 {
+      font-weight: 400;
+      font-size: 1.3rem;
+      color: #1e3a5f;
+      background: #eef4fa;
+      display: inline-block;
+      padding: 0.3rem 2rem;
+      border-radius: 60px;
+      margin-top: 0.25rem;
+      letter-spacing: 0.2px;
+    }
+
+    .target-markets {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      background: #f0f5fe;
+      padding: 0.4rem 1.5rem;
+      border-radius: 40px;
+      display: inline-block;
+      color: #1a3c60;
+      font-weight: 500;
+    }
+
+    .target-markets i {
+      margin-right: 0.4rem;
+      color: #2c6b9e;
+    }
+
+    /* social row */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1.2rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f1f6fc;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1a3a5e;
+      transition: 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .social-links a i {
+      font-size: 1.1rem;
+      width: 1.2rem;
+      color: #1f4b77;
+    }
+
+    .social-links a:hover {
+      background: #e1ebf7;
+      border-color: #b6cee8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,20,40,0.04);
+    }
+
+    hr {
+      border: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c7dcee, #aac0d8, #c7dcee, transparent);
+      margin: 1.8rem 0;
+    }
+
+    /* sections */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #0b1a2e;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title i {
+      color: #2c6b9e;
+      font-size: 1.6rem;
+      width: 2rem;
+    }
+
+    .summary-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #1d2f44;
+      background: #f9fcff;
+      padding: 1.2rem 1.8rem;
+      border-radius: 24px;
+      border-left: 6px solid #2c6b9e;
+      margin-bottom: 1.8rem;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1.8rem 0;
+    }
+
+    @media (max-width: 720px) {
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .portfolio {
+        padding: 1.5rem;
+      }
+      .intro h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .skill-box {
+      background: #fafdff;
+      padding: 0.8rem 1.2rem 1.2rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 10px rgba(0, 30, 60, 0.02);
+      border: 1px solid #e9f0f8;
+    }
+
+    .skill-box h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1e3a5f;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.3px;
+      border-bottom: 1px dashed #d6e3f0;
+      padding-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-box h4 i {
+      color: #2c6b9e;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+    }
+
+    .skill-tags span {
+      background: white;
+      border: 1px solid #dce8f2;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #1a3a5e;
+      transition: 0.1s ease;
+      letter-spacing: 0.2px;
+    }
+
+    .skill-tags span:hover {
+      background: #e3edf9;
+      border-color: #a0bedb;
+    }
+
+    .exp-item {
+      background: #fafdff;
+      padding: 1rem 1.4rem;
+      border-radius: 20px;
+      border: 1px solid #e9f0f8;
+      margin-bottom: 1rem;
+    }
+
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-item .exp-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0b1a2e;
+    }
+
+    .exp-item .exp-meta {
+      font-weight: 500;
+      color: #2c5f8a;
+      font-size: 0.9rem;
+      margin: 0.2rem 0 0.5rem;
+    }
+
+    .exp-item ul {
+      list-style: none;
+      padding-left: 0.2rem;
+    }
+
+    .exp-item ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #1f3650;
+    }
+
+    .exp-item ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2c6b9e;
+      font-weight: 600;
+    }
+
+    .exp-item .achieve {
+      background: #e5eff9;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1f4b77;
+      display: inline-block;
+      margin-top: 0.3rem;
+    }
+
+    .edu-target {
+      background: #f3f9ff;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+      border: 1px solid #dde9f5;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1.8rem 0 0.5rem;
+    }
+
+    .edu-target .edu {
+      font-weight: 500;
+    }
+
+    .edu-target .edu i {
+      color: #2c6b9e;
+      margin-right: 0.4rem;
+    }
+
+    .edu-target .target-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.8rem;
+    }
+
+    .edu-target .target-roles span {
+      background: white;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1a3c60;
+      border: 1px solid #c5d7eb;
+    }
+
+    .footer-cta {
+      text-align: center;
+      margin-top: 2.8rem;
+      background: #f1f8ff;
+      padding: 1.5rem 1rem;
+      border-radius: 40px;
+    }
+
+    .footer-cta h3 {
+      font-weight: 600;
+      color: #0b1a2e;
+      font-size: 1.3rem;
+    }
+
+    .footer-cta p {
+      margin-top: 0.3rem;
+      color: #1f3a5a;
+    }
+
+    .footer-cta a {
+      color: #1f4b77;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: 0.15s;
+    }
+
+    .footer-cta a:hover {
+      border-bottom-color: #1f4b77;
+    }
+
+    /* small */
+    .text-muted {
+      color: #3d5c7c;
+    }
+    .mt-1 { margin-top: 0.8rem; }
   </style>
 </head>
 <body>
-  <div class="portfolio">
+  <div class="portfolio" id="app">
+    <!-- header -->
     <div class="badge-row">
-      <span class="tag"><i class="fas fa-briefcase"></i> Open to work</span>
-      <span>EN · IR</span>
+      <span class="tag"><i class="fas fa-briefcase" style="margin-right: 0.3rem;"></i> Open to work · worldwide</span>
+      <span class="lang"><i class="fas fa-globe"></i> EN · <i class="fas fa-flag"></i> IR</span>
     </div>
+
+    <!-- intro -->
     <div class="intro">
-      <h1>Hi, I'm <span>Mohammad Mosallaei</span></h1>
+      <h1>Hi, I'm <span>Mohammad Mosallaei</span> 👋</h1>
       <h3>Licensed Architect · BIM & Data Analytics Professional</h3>
-      <div class="target-markets"><i class="fas fa-map-pin"></i> Target: Global / Remote</div>
+      <div class="target-markets">
+        <i class="fas fa-map-pin"></i> Target Markets: Canada · Australia · New Zealand · Europe · GCC · Remote
+      </div>
     </div>
+
+    <!-- social badges -->
     <div class="social-links">
-      <a href="mailto:mosallaei@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-      <a href="https://www.linkedin.com/in/mohamad-mosallaei/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="https://github.com/mosallaei1976" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://t.me/msli1976" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-      <a href="https://www.youtube.com/@mosallaei.architect" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="mailto:mosallaei@gmail.com"><i class="fas fa-envelope"></i> mosallaei@gmail.com</a>
+      <a href="https://linkedin.com/in/mohamad-mosallaei"><i class="fab fa-linkedin"></i> mohamad-mosallaei</a>
+      <a href="https://github.com/mosallaei1976"><i class="fab fa-github"></i> mosallaei1976</a>
+      <a href="https://t.me/msli1976"><i class="fab fa-telegram"></i> msli1976</a>
+      <a href="https://youtube.com/@mosallaei.architect"><i class="fab fa-youtube"></i> @mosallaei.architect</a>
     </div>
+
     <hr>
+
+    <!-- summary -->
     <div class="summary-text">
-      Licensed Architect with <strong>20+ years</strong> experience. Expert in Architectural Design, BIM, Power BI, Data Analytics, and AI integration for the AEC industry.
+      <i class="fas fa-quote-left" style="color:#2c6b9e; opacity:0.6; margin-right: 0.6rem;"></i>
+      Licensed Architect with <strong>20+ years</strong> of experience in architectural design, construction supervision, project coordination, and multidisciplinary team collaboration. Proven ability to deliver residential, commercial, and mixed-use projects from concept through construction. Currently expanding expertise in <strong>BIM, Power BI, Data Analytics, and AI</strong> to drive digital transformation in the AEC industry. Strong analytical, leadership, and stakeholder management skills with a commitment to quality, safety, and efficient project delivery.
     </div>
+
+    <!-- core competencies + technical skills (two col) -->
     <div class="grid-2col">
+      <!-- architecture & construction -->
       <div class="skill-box">
-        <h4>Architecture & Construction</h4>
-        <div class="skill-tags"><span>Design</span><span>BIM</span><span>Supervision</span><span>Compliance</span></div>
+        <h4><i class="fas fa-hard-hat"></i> Architecture & Construction</h4>
+        <div class="skill-tags">
+          <span>Architectural Design</span>
+          <span>Construction Documentation</span>
+          <span>Design Management</span>
+          <span>Building Codes & Compliance</span>
+          <span>Construction Supervision</span>
+          <span>Site Inspection</span>
+          <span>Contractor Coordination</span>
+          <span>Technical Reporting</span>
+          <span>Quality Assurance</span>
+          <span>Risk Management</span>
+        </div>
       </div>
+
+      <!-- digital & emerging -->
       <div class="skill-box">
-        <h4>Digital & Tech</h4>
-        <div class="skill-tags"><span>AutoCAD</span><span>Power BI</span><span>Data Analytics</span><span>AI</span></div>
+        <h4><i class="fas fa-microchip"></i> Digital & Emerging Tech</h4>
+        <div class="skill-tags">
+          <span>AutoCAD</span>
+          <span>Microsoft Office Suite</span>
+          <span>Power BI</span>
+          <span>BIM Fundamentals</span>
+          <span>Data Visualization</span>
+          <span>Construction Analytics</span>
+          <span>AI for AEC</span>
+          <span>Digital Transformation</span>
+          <span>Process Automation</span>
+        </div>
       </div>
     </div>
+
+    <!-- experience -->
+    <div class="section-title" style="margin-top: 0.8rem;"><i class="fas fa-briefcase"></i> Professional Experience</div>
+
     <div class="exp-item">
-      <h4>Professional Experience</h4>
+      <div class="exp-title">Architectural Supervisor / Licensed Architect</div>
+      <div class="exp-meta"><i class="far fa-calendar-alt"></i> 20+ Years of Professional Experience</div>
       <ul>
-        <li>20+ years of Architectural Design & Construction Supervision.</li>
-        <li>Specialized in BIM workflows and Construction Data Analytics.</li>
+        <li>Supervised construction activities from foundation to project completion.</li>
+        <li>Coordinated architects, engineers, contractors, and clients.</li>
+        <li>Reviewed architectural drawings and technical documentation.</li>
+        <li>Conducted site inspections and quality assurance while ensuring compliance with building regulations.</li>
+        <li>Supported design development, schedule monitoring, and construction problem-solving.</li>
+      </ul>
+      <div class="achieve"><i class="fas fa-trophy"></i> Key achievements</div>
+      <ul style="margin-top: 0.3rem;">
+        <li>Successfully supervised multiple residential and commercial construction projects.</li>
+        <li>Improved coordination between design and construction teams, reducing errors through effective site supervision.</li>
+        <li>Developed extensive expertise in construction documentation and technical review.</li>
+        <li>Expanded expertise into BIM, Data Analytics, and AI applications for construction.</li>
       </ul>
     </div>
+
+    <!-- education & target roles -->
     <div class="edu-target">
-      <p><strong>Education:</strong> Bachelor's Degree in Architecture · Licensed Architect</p>
+      <div class="edu"><i class="fas fa-graduation-cap"></i> Bachelor's Degree in Architecture · Licensed Architect</div>
+      <div class="target-roles">
+        <span>Architect</span>
+        <span>Architectural Supervisor</span>
+        <span>Project Coordinator</span>
+        <span>Design Coordinator</span>
+        <span>BIM Coordinator</span>
+        <span>Construction Coordinator</span>
+        <span>Technical Office Engineer</span>
+        <span>Documentation Specialist</span>
+        <span>BIM Data Analyst</span>
+        <span>Construction Data Analyst</span>
+      </div>
+    </div>
+
+    <!-- footer CTA -->
+    <div class="footer-cta">
+      <h3>⚡ Let's Connect & Collaborate!</h3>
+      <p>Feel free to reach out via <a href="mailto:mosallaei@gmail.com">Email</a> or connect with me on <a href="https://linkedin.com/in/mohamad-mosallaei">LinkedIn</a>.</p>
+      <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #24537e;">
+        <i class="fas fa-map-marker-alt" style="margin-right: 0.2rem;"></i> Remote · Worldwide
+      </div>
+    </div>
+
+    <!-- small footer note -->
+    <div style="text-align: center; font-size: 0.75rem; color: #6c8aa8; margin-top: 1.8rem; border-top: 1px solid #e5edf6; padding-top: 1.2rem; letter-spacing: 0.3px;">
+      <i class="fas fa-code"></i> built with <i class="fas fa-heart" style="color: #b22234;"></i> · GitHub portfolio · 2026
     </div>
   </div>
+  <!-- optional JS (lightweight) -->
+  <script>
+    (function() {
+      console.log('🚀 Mohammad Mosallaei · Architect & BIM professional');
+      console.log('📬 mosallaei@gmail.com · open to opportunities');
+    })();
+  </script>
 </body>
 </html>
