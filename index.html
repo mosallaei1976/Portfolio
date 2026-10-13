@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#1f4b77">
 
@@ -19,23 +19,20 @@
   <meta property="og:title" content="Mohammad Mosallaei · Architect & BIM Professional">
   <meta property="og:description" content="Licensed Architect · 20+ years · BIM, Power BI & Construction Analytics · Open to remote roles worldwide.">
   <meta property="og:url" content="https://mosallaei1976.github.io/Portfolio/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Mohammad Mosallaei · Architect & BIM Professional">
-  <meta name="twitter:description" content="Licensed Architect · 20+ years · BIM, Power BI & Construction Analytics · Open to remote roles worldwide.">
 
-  <!-- Favicon (inline SVG, no extra request) -->
+  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%231f4b77'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Arial, sans-serif' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 
-  <!-- Type system: Space Grotesk (display) / IBM Plex Sans (body) / IBM Plex Mono (data & labels) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome 6 (free) — pinned to a stable release, connection warmed up in advance -->
+  <!-- Font Awesome 6 -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
 
-  <!-- Structured data for search engines / rich previews -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,56 +73,6 @@
   }
   </script>
 
-  <!-- FAQ structured data — mirrors the visible FAQ section below -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How many years of architecture experience does Mohammad Mosallaei have?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Mohammad Mosallaei has over 20 years of experience in architectural design, construction supervision, and inspection of reinforced concrete and steel buildings up to 6 floors, based in Qazvin, Iran."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What professional license does Mohammad Mosallaei hold?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "He holds a Grade 1 license in architectural design, supervision, and construction, issued by Iran's Ministry of Road and Urban Development, and is a member of the Qazvin Construction Engineering Organization."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Mohammad Mosallaei available for remote or international work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. He is open to remote and international opportunities across Canada, Australia, New Zealand, Europe, and the GCC, and is willing to relocate with visa sponsorship where required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is Mohammad Mosallaei's educational background?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "He holds a Master's degree (M.Sc.) in Architectural Engineering from Qazvin Islamic Azad University (QIAU), completed in 2003."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is Mohammad Mosallaei's current focus beyond architecture?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "He is expanding into BIM-driven data analytics, Power BI dashboards for construction project controls, and AI-powered tools for the AEC industry, while continuing active work as a licensed architectural supervisor."
-        }
-      }
-    ]
-  }
-  </script>
-
   <style>
     :root {
       --paper: #F7F5F0;
@@ -145,31 +92,41 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--paper);
-      font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      padding: 1rem 0.5rem 80px 0.5rem; /* فضای خالی برای نوار پایین موبایل */
       display: flex;
       justify-content: center;
-      padding: 2rem 1rem;
-      color: var(--ink);
     }
 
     .portfolio {
-      max-width: 1100px;
+      max-width: 900px;
       width: 100%;
       background: var(--card);
       border: 1px solid var(--line-soft);
-      border-radius: 10px;
-      box-shadow: 0 12px 30px rgba(20, 30, 40, 0.05);
-      padding: 2.5rem 2.5rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(20, 30, 40, 0.06);
+      padding: 1.5rem 1rem;
     }
 
-    /* ── Title block (signature element) ───────────────────────── */
+    @media (min-width: 768px) {
+      body { padding: 2rem 1rem; }
+      .portfolio { padding: 2.5rem; }
+    }
+
+    /* Title Block */
     .titleblock {
       border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 1.6rem 1.8rem 2rem;
-      margin-bottom: 2.2rem;
+      border-radius: 8px;
+      padding: 1.2rem 1rem;
+      margin-bottom: 1.5rem;
       background: var(--card);
     }
 
@@ -177,161 +134,135 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 1rem 2rem;
-      padding-bottom: 1.2rem;
-      margin-bottom: 1.4rem;
+      gap: 0.6rem;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1rem;
       border-bottom: 1px solid var(--line-soft);
     }
 
     .tb-field {
       display: flex;
       flex-direction: column;
-      gap: 0.15rem;
     }
 
     .tb-label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.09em;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--ink-soft);
     }
 
     .tb-value {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: var(--ink);
     }
 
     .tb-name h1 {
-      font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 3rem;
-      line-height: 1.05;
-      letter-spacing: -0.01em;
+      font-size: 2rem;
+      line-height: 1.1;
       color: var(--ink);
     }
 
-    .tb-name h1 .accent {
-      color: var(--blue);
+    @media (min-width: 768px) {
+      .tb-name h1 { font-size: 2.8rem; }
+      .titleblock { padding: 1.5rem 1.8rem; }
     }
+
+    .tb-name h1 .accent { color: var(--blue); }
 
     .hr-dim {
-      position: relative;
       height: 1px;
       background: var(--line);
-      margin: 1.4rem 0 1.2rem;
+      margin: 1rem 0;
     }
-
-    .hr-dim::before, .hr-dim::after {
-      content: '';
-      position: absolute;
-      top: -5px;
-      width: 1px;
-      height: 11px;
-      background: var(--line);
-    }
-
-    .hr-dim::before { left: 0; }
-    .hr-dim::after { right: 0; }
 
     .tb-subtitle {
-      font-size: 1.15rem;
+      font-size: 0.98rem;
       font-weight: 500;
       color: var(--ink-soft);
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.6rem;
     }
 
     .tb-markets {
-      font-size: 0.92rem;
+      font-size: 0.82rem;
       color: var(--ink-soft);
     }
 
     .tb-markets .tb-label {
       display: inline;
-      margin-right: 0.6rem;
+      margin-right: 0.4rem;
       color: var(--copper);
     }
 
-    @media (max-width: 720px) {
-      .tb-name h1 { font-size: 2.1rem; }
-      .portfolio { padding: 1.5rem; }
+    /* Social Links */
+    .social-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
     }
 
-    /* ── social row ─────────────────────────────────────────────── */
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem 0.8rem;
-      margin: 0 0 2.2rem;
+    @media (min-width: 640px) {
+      .social-links { display: flex; flex-wrap: wrap; justify-content: center; }
     }
 
     .social-links a {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      justify-content: center;
+      gap: 0.4rem;
       background: var(--card);
-      padding: 0.45rem 0.95rem;
-      border-radius: 4px;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
       text-decoration: none;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 500;
       color: var(--ink);
       border: 1px solid var(--line);
-      transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+      transition: all 0.15s ease;
     }
 
     .social-links a i {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--blue);
     }
 
-    .social-links a:hover,
-    .social-links a:focus-visible {
+    .social-links a:hover {
       border-color: var(--blue);
       color: var(--blue);
       background: var(--blue-soft);
     }
 
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--blue);
-      outline-offset: 2px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
-    }
-
-    /* ── sheet-numbered section headers ────────────────────────── */
+    /* Sheet Titles */
     .sheet-title {
       display: flex;
       align-items: baseline;
-      gap: 0.8rem;
-      margin: 2.4rem 0 1.1rem;
+      gap: 0.6rem;
+      margin: 1.8rem 0 0.8rem;
     }
 
     .sheet-title .num {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
       color: var(--copper);
       border: 1px solid var(--copper);
       border-radius: 3px;
-      padding: 0.15rem 0.5rem;
-      white-space: nowrap;
+      padding: 0.1rem 0.4rem;
     }
 
     .sheet-title h2 {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.05em;
       color: var(--ink);
     }
 
@@ -340,117 +271,96 @@
       flex: 1;
       height: 1px;
       background: var(--line-soft);
-      align-self: center;
     }
 
-    /* ── summary ────────────────────────────────────────────────── */
+    /* Summary */
     .summary-text {
-      font-size: 1.03rem;
+      font-size: 0.92rem;
       line-height: 1.65;
-      color: var(--ink);
       background: var(--blue-soft);
-      padding: 1.2rem 1.6rem;
-      border-radius: 4px;
+      padding: 1rem;
+      border-radius: 6px;
       border-left: 3px solid var(--blue);
     }
 
-    /* ── skills grid ────────────────────────────────────────────── */
+    /* Skills Grid */
     .grid-2col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.4rem;
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
-    @media (max-width: 720px) {
-      .grid-2col { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .grid-2col { grid-template-columns: 1fr 1fr; }
     }
 
     .skill-box {
       background: var(--card);
-      padding: 1rem 1.2rem 1.3rem;
-      border-radius: 6px;
+      padding: 1rem;
+      border-radius: 8px;
       border: 1px solid var(--line-soft);
     }
 
     .skill-box h4 {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
       color: var(--ink-soft);
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.7rem;
       border-bottom: 1px dashed var(--line);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.4rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .skill-box h4 i { color: var(--blue); }
 
-    .skill-tags {
+    .skill-tags, .target-roles {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem 0.5rem;
+      gap: 0.35rem;
     }
 
-    .skill-tags span,
-    .target-roles span {
-      background: transparent;
+    .skill-tags span, .target-roles span {
       border: 1px solid var(--line);
-      padding: 0.22rem 0.7rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 4px;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      font-weight: 500;
+      font-size: 0.68rem;
       color: var(--ink-soft);
-      letter-spacing: 0.01em;
-      transition: border-color 0.12s, color 0.12s, background-color 0.12s;
     }
 
-    .skill-tags span:hover,
-    .target-roles span:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-      background: var(--blue-soft);
-    }
-
-    /* ── experience ─────────────────────────────────────────────── */
+    /* Experience */
     .exp-item {
       background: var(--card);
-      padding: 1.1rem 1.4rem;
+      padding: 1rem;
       border: 1px solid var(--line-soft);
       border-left: 3px solid var(--blue);
-      border-radius: 4px;
-      margin-bottom: 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
     }
-
-    .exp-item:last-child { margin-bottom: 0; }
 
     .exp-item .exp-title {
       font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--ink);
+      font-size: 0.95rem;
     }
 
     .exp-item .exp-meta {
       font-family: 'IBM Plex Mono', monospace;
-      font-weight: 500;
       color: var(--blue);
-      font-size: 0.82rem;
-      margin: 0.25rem 0 0.6rem;
+      font-size: 0.75rem;
+      margin: 0.2rem 0 0.5rem;
     }
 
-    .exp-item ul { list-style: none; padding-left: 0.2rem; }
+    .exp-item ul { list-style: none; padding-left: 0; }
 
     .exp-item ul li {
       position: relative;
-      padding-left: 1.3rem;
-      margin-bottom: 0.35rem;
-      font-size: 0.94rem;
-      line-height: 1.5;
-      color: var(--ink);
+      padding-left: 1.1rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
     }
 
     .exp-item ul li::before {
@@ -458,112 +368,81 @@
       position: absolute;
       left: 0;
       color: var(--copper);
-      font-weight: 600;
     }
 
     .exp-item .achieve {
       background: var(--blue-soft);
-      padding: 0.35rem 0.9rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 4px;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       color: var(--blue);
       display: inline-block;
       margin-top: 0.3rem;
-      letter-spacing: 0.02em;
     }
 
-    /* ── education / credentials ────────────────────────────────── */
+    /* Education & Credentials */
     .edu-target {
       background: var(--blue-soft);
-      border-radius: 6px;
-      padding: 1.1rem 1.6rem;
+      border-radius: 8px;
+      padding: 1rem;
       border: 1px solid var(--line-soft);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.8rem;
     }
 
     .edu-target .edu {
-      font-weight: 500;
-      font-size: 0.94rem;
+      font-size: 0.88rem;
+      margin-bottom: 0.8rem;
     }
 
-    .edu-target .edu i { color: var(--blue); margin-right: 0.4rem; }
+    .edu-target .edu i { color: var(--blue); margin-right: 0.3rem; }
 
-    .edu-target .target-roles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem 0.6rem;
-    }
-
-    .edu-target .target-roles span { background: var(--card); }
-
-    /* ── FAQ ────────────────────────────────────────────────────── */
-    .faq-block { display: flex; flex-direction: column; gap: 1.1rem; }
+    /* FAQ */
+    .faq-block { display: flex; flex-direction: column; gap: 0.8rem; }
 
     .faq-item {
       background: var(--card);
       border: 1px solid var(--line-soft);
-      border-radius: 4px;
-      padding: 1rem 1.3rem;
+      border-radius: 6px;
+      padding: 0.9rem 1rem;
     }
 
     .faq-item .faq-q {
       display: flex;
-      gap: 0.6rem;
+      gap: 0.5rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--ink);
-      margin-bottom: 0.35rem;
+      font-size: 0.88rem;
+      margin-bottom: 0.2rem;
     }
 
     .faq-item .faq-num {
       font-family: 'IBM Plex Mono', monospace;
       color: var(--copper);
-      font-weight: 600;
     }
 
     .faq-item .faq-a {
-      font-size: 0.92rem;
-      line-height: 1.55;
+      font-size: 0.84rem;
       color: var(--ink-soft);
-      padding-left: 1.6rem;
+      padding-left: 1.4rem;
     }
 
-    /* ── footer CTA ─────────────────────────────────────────────── */
+    /* Footer CTA */
     .footer-cta {
       text-align: center;
-      margin-top: 2.6rem;
+      margin-top: 2rem;
       background: var(--paper);
       border: 1px solid var(--line-soft);
-      padding: 1.6rem 1rem;
-      border-radius: 6px;
+      padding: 1.2rem 1rem;
+      border-radius: 8px;
     }
 
     .footer-cta h2 {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-weight: 700;
-      color: var(--ink);
-      font-size: 1.1rem;
+      font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
 
-    .footer-cta p { margin-top: 0.5rem; color: var(--ink-soft); }
-
-    .footer-cta a {
-      color: var(--blue);
-      font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s;
-    }
-
-    .footer-cta a:hover { border-bottom-color: var(--blue); }
+    .footer-cta p { margin-top: 0.3rem; font-size: 0.86rem; color: var(--ink-soft); }
 
     .copy-btn {
       background: none;
@@ -573,34 +452,68 @@
       font: inherit;
       font-weight: 600;
       text-decoration: underline;
-      padding: 0;
     }
 
     footer.site-footer {
       text-align: center;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--ink-soft);
-      margin-top: 1.8rem;
+      margin-top: 1.2rem;
       border-top: 1px solid var(--line-soft);
-      padding-top: 1.2rem;
-      letter-spacing: 0.02em;
+      padding-top: 0.8rem;
+    }
+
+    /* Mobile Sticky Bottom Navigation */
+    .mobile-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .mobile-bottom-bar a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      font-size: 0.68rem;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--ink-soft);
+      gap: 2px;
+    }
+
+    .mobile-bottom-bar a i {
+      font-size: 1.1rem;
+      color: var(--blue);
+    }
+
+    @media (min-width: 768px) {
+      .mobile-bottom-bar { display: none; }
+      body { padding-bottom: 2rem; }
     }
   </style>
 </head>
 <body>
   <main class="portfolio" id="app">
 
-    <!-- title block (signature element, styled after a drawing-sheet title block) -->
+    <!-- Title Block -->
     <header class="titleblock">
       <div class="tb-row">
         <span class="tb-field"><span class="tb-label">Sheet</span><span class="tb-value">A-00 · Cover</span></span>
-        <span class="tb-field"><span class="tb-label">Status</span><span class="tb-value"><i class="fas fa-briefcase" aria-hidden="true"></i> Open to work · Worldwide</span></span>
+        <span class="tb-field"><span class="tb-label">Status</span><span class="tb-value"><i class="fas fa-briefcase" aria-hidden="true"></i> Open to work</span></span>
         <span class="tb-field"><span class="tb-label">Lang</span><span class="tb-value"><i class="fas fa-globe" aria-hidden="true"></i> EN</span></span>
       </div>
 
       <div class="tb-name">
-        <h1>Mohammad <span class="accent">Mosallaei</span> <span aria-hidden="true">👋</span></h1>
+        <h1>Mohammad <span class="accent">Mosallaei</span> 👋</h1>
       </div>
 
       <div class="hr-dim" aria-hidden="true"></div>
@@ -609,153 +522,145 @@
       <p class="tb-markets"><span class="tb-label">Target Markets</span> Canada · Australia · New Zealand · Europe · GCC · Remote</p>
     </header>
 
-    <!-- social badges -->
+    <!-- Social Badges -->
     <nav class="social-links" aria-label="Contact and social links">
-      <a href="mailto:mosallaei@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> mosallaei@gmail.com</a>
-      <a href="https://linkedin.com/in/mohamad-mosallaei" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> mohamad-mosallaei</a>
-      <a href="https://github.com/mosallaei1976" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> mosallaei1976</a>
-      <a href="https://t.me/msli1976" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram" aria-hidden="true"></i> msli1976</a>
-      <a href="https://youtube.com/@mosallaei.architect" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i> @mosallaei.architect</a>
+      <a href="mailto:mosallaei@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
+      <a href="https://linkedin.com/in/mohamad-mosallaei" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      <a href="https://github.com/mosallaei1976" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+      <a href="https://t.me/msli1976" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram" aria-hidden="true"></i> Telegram</a>
+      <a href="https://youtube.com/@mosallaei.architect" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i> YouTube</a>
     </nav>
 
-    <!-- summary -->
+    <!-- Summary -->
     <div class="sheet-title"><span class="num">A-01</span><h2>Summary</h2></div>
     <p class="summary-text">
-      <i class="fas fa-quote-left" aria-hidden="true" style="color:var(--blue); opacity:0.6; margin-right: 0.6rem;"></i>
-      Mohammad Mosallaei is a licensed architect based in Qazvin, Iran, with <strong>20+ years</strong> of experience in the design, supervision, and inspection of reinforced concrete and steel buildings up to six floors. He holds a <strong>Grade 1 architectural license</strong> from Iran's Ministry of Road and Urban Development and has served as Architectural Supervisor at the Qazvin Construction Engineering Organization since 2007. He is currently expanding into <strong>BIM-driven data analytics and Power BI</strong> dashboards for construction project controls, and is open to remote or international roles.
+      Mohammad Mosallaei is a licensed architect based in Qazvin, Iran, with <strong>20+ years</strong> of experience in the design, supervision, and inspection of buildings. He holds a <strong>Grade 1 architectural license</strong> and is expanding into <strong>BIM-driven data analytics and Power BI</strong> for construction project controls.
     </p>
 
-    <!-- core competencies -->
+    <!-- Core Competencies -->
     <div class="sheet-title"><span class="num">A-02</span><h2>Core Competencies</h2></div>
     <div class="grid-2col">
-      <section class="skill-box" aria-labelledby="skills-arch">
-        <h4 id="skills-arch"><i class="fas fa-hard-hat" aria-hidden="true"></i> Architecture &amp; Construction</h4>
+      <section class="skill-box">
+        <h4><i class="fas fa-hard-hat" aria-hidden="true"></i> Architecture &amp; Construction</h4>
         <div class="skill-tags">
           <span>Architectural Design</span>
           <span>Construction Documentation</span>
           <span>Design Management</span>
-          <span>Building Codes &amp; Compliance</span>
+          <span>Building Codes</span>
           <span>Construction Supervision</span>
           <span>Site Inspection</span>
-          <span>Contractor Coordination</span>
-          <span>Technical Reporting</span>
-          <span>Quality Assurance</span>
-          <span>Risk Management</span>
         </div>
       </section>
 
-      <section class="skill-box" aria-labelledby="skills-digital">
-        <h4 id="skills-digital"><i class="fas fa-microchip" aria-hidden="true"></i> Digital &amp; Emerging Tech</h4>
+      <section class="skill-box">
+        <h4><i class="fas fa-microchip" aria-hidden="true"></i> Digital &amp; Tech</h4>
         <div class="skill-tags">
           <span>AutoCAD</span>
-          <span>Microsoft Office Suite</span>
           <span>Power BI</span>
           <span>BIM Fundamentals</span>
           <span>Data Visualization</span>
           <span>Construction Analytics</span>
           <span>AI for AEC</span>
-          <span>Digital Transformation</span>
-          <span>Process Automation</span>
         </div>
       </section>
     </div>
 
-    <!-- experience -->
+    <!-- Experience -->
     <div class="sheet-title"><span class="num">A-03</span><h2>Professional Experience</h2></div>
 
     <article class="exp-item">
       <div class="exp-title">Architectural Supervisor</div>
-      <div class="exp-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i> Qazvin Construction Engineering Organization · Nov 2007 – Present</div>
+      <div class="exp-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i> Qazvin Construction Engineering Organization · 2007 – Present</div>
       <ul>
-        <li>Supervised construction activities and verified compliance of technical documents with legal and building-code requirements.</li>
-        <li>Reviewed architectural drawings and coordinated with project stakeholders on approvals.</li>
+        <li>Supervised construction activities and verified compliance with legal and building-code requirements.</li>
+        <li>Reviewed architectural drawings and coordinated with stakeholders.</li>
       </ul>
       <div class="achieve"><i class="fas fa-trophy" aria-hidden="true"></i> Key achievements</div>
       <ul style="margin-top: 0.3rem;">
-        <li>Certificate of appreciation, Department of Urban Development, Jan 2013.</li>
-        <li>Completed drywall systems implementation &amp; inspection training with KNAUF, 2018.</li>
-        <li>Part-time AutoCAD instructor at University of Applied Science and Technology (Qazvin) and Darolfonoon Institute of Higher Education, Qazvin.</li>
+        <li>Certificate of appreciation, Department of Urban Development, 2013.</li>
+        <li>KNAUF drywall systems training, 2018.</li>
       </ul>
     </article>
 
     <article class="exp-item">
       <div class="exp-title">Technical Office Expert</div>
-      <div class="exp-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i> MAMMUT Co. · Mashhad Combined Cycle Power Plant · 2011</div>
+      <div class="exp-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i> MAMMUT Co. · Mashhad Power Plant · 2011</div>
       <ul>
-        <li>Technical office activities and project documentation support on a combined-cycle power plant project.</li>
+        <li>Technical office activities and project documentation support.</li>
       </ul>
     </article>
 
     <article class="exp-item">
       <div class="exp-title">Architectural &amp; Structural Supervisor</div>
-      <div class="exp-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i> Housing Foundation of Islamic Revolution · 2006 – 2009</div>
+      <div class="exp-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i> Housing Foundation · 2006 – 2009</div>
       <ul>
-        <li>Architectural and structural supervision, verifying execution against approved technical documents.</li>
+        <li>Supervised execution against approved technical documents.</li>
       </ul>
     </article>
 
-    <!-- education & target roles -->
-    <div class="sheet-title"><span class="num">A-04</span><h2>Education &amp; Credentials</h2></div>
-    <section class="edu-target" aria-label="Education and target roles">
-      <div class="edu"><i class="fas fa-graduation-cap" aria-hidden="true"></i> M.Sc. Architectural Engineering, Qazvin Islamic Azad University (2003) · Grade 1 License, Ministry of Road &amp; Urban Development</div>
+    <!-- Education & Target Roles -->
+    <div class="sheet-title"><span class="num">A-04</span><h2>Education &amp; Roles</h2></div>
+    <section class="edu-target">
+      <div class="edu"><i class="fas fa-graduation-cap" aria-hidden="true"></i> M.Sc. Architectural Engineering (2003) · Grade 1 License</div>
       <div class="target-roles">
         <span>Architect</span>
-        <span>Architectural Supervisor</span>
+        <span>Supervisor</span>
         <span>Project Coordinator</span>
-        <span>Design Coordinator</span>
         <span>BIM Coordinator</span>
-        <span>Construction Coordinator</span>
-        <span>Technical Office Engineer</span>
-        <span>Documentation Specialist</span>
         <span>BIM Data Analyst</span>
-        <span>Construction Data Analyst</span>
       </div>
     </section>
 
-    <!-- FAQ — visible mirror of the FAQPage structured data above -->
-    <div class="sheet-title"><span class="num">A-05</span><h2>Frequently Asked Questions</h2></div>
+    <!-- FAQ -->
+    <div class="sheet-title"><span class="num">A-05</span><h2>FAQ</h2></div>
     <div class="faq-block">
       <div class="faq-item">
-        <p class="faq-q"><span class="faq-num">Q1</span> How many years of architecture experience does Mohammad Mosallaei have?</p>
-        <p class="faq-a">20+ years designing, supervising, and inspecting reinforced concrete and steel buildings up to 6 floors, based in Qazvin, Iran.</p>
+        <p class="faq-q"><span class="faq-num">Q1</span> Years of experience?</p>
+        <p class="faq-a">20+ years in design, supervision, and inspection based in Qazvin, Iran.</p>
       </div>
       <div class="faq-item">
-        <p class="faq-q"><span class="faq-num">Q2</span> What professional license does he hold?</p>
-        <p class="faq-a">A Grade 1 license in architectural design, supervision, and construction from Iran's Ministry of Road and Urban Development; member of the Qazvin Construction Engineering Organization.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q"><span class="faq-num">Q3</span> Is he available for remote or international work?</p>
-        <p class="faq-a">Yes — open to remote and international roles in Canada, Australia, New Zealand, Europe, and the GCC, with relocation and visa sponsorship where required.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q"><span class="faq-num">Q4</span> What is his educational background?</p>
-        <p class="faq-a">M.Sc. in Architectural Engineering, Qazvin Islamic Azad University (QIAU), 2003.</p>
+        <p class="faq-q"><span class="faq-num">Q2</span> Available for remote work?</p>
+        <p class="faq-a">Yes, open to remote and international roles worldwide.</p>
       </div>
     </div>
 
-    <!-- footer CTA -->
+    <!-- Footer CTA -->
     <section class="footer-cta">
-      <h2><span aria-hidden="true">⚡</span> Let's Connect &amp; Collaborate!</h2>
+      <h2>⚡ Let's Collaborate!</h2>
       <p>
-        Feel free to reach out via
-        <button type="button" class="copy-btn" id="copyEmailBtn" data-email="mosallaei@gmail.com">Email</button>
-        or connect with me on <a href="https://linkedin.com/in/mohamad-mosallaei" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        Reach out via <button type="button" class="copy-btn" id="copyEmailBtn" data-email="mosallaei@gmail.com">Email</button> or <a href="https://linkedin.com/in/mohamad-mosallaei" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
       </p>
-      <div style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--ink-soft);">
-        <i class="fas fa-map-marker-alt" aria-hidden="true" style="margin-right: 0.2rem;"></i> Remote · Worldwide
-      </div>
     </section>
 
-    <!-- small footer note -->
+    <!-- Footer Note -->
     <footer class="site-footer">
-      <i class="fas fa-code" aria-hidden="true"></i> built with <i class="fas fa-heart" aria-hidden="true" style="color: var(--copper);"></i> · GitHub portfolio · <span id="year"></span>
+      <i class="fas fa-code" aria-hidden="true"></i> GitHub portfolio · <span id="year"></span>
     </footer>
   </main>
+
+  <!-- Mobile Sticky Bottom Navigation Bar -->
+  <nav class="mobile-bottom-bar" aria-label="Quick mobile navigation">
+    <a href="mailto:mosallaei@gmail.com">
+      <i class="fas fa-envelope"></i>
+      <span>Email</span>
+    </a>
+    <a href="https://linkedin.com/in/mohamad-mosallaei" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin"></i>
+      <span>LinkedIn</span>
+    </a>
+    <a href="https://github.com/mosallaei1976" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github"></i>
+      <span>GitHub</span>
+    </a>
+    <a href="tel:+989122810702">
+      <i class="fas fa-phone"></i>
+      <span>Call</span>
+    </a>
+  </nav>
 
   <script>
     (function () {
       'use strict';
-
       var yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
